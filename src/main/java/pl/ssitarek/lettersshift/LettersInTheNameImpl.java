@@ -21,6 +21,13 @@ public class LettersInTheNameImpl implements LettersInTheName {
 
     }
 
+
+    /**
+     * method calculates the number of the neighbours letter shift to reach by the letter the first position
+     *
+     * @return number of shifts
+     */
+
     @Override
     public int calculateNumberOfShift() {
 
@@ -49,6 +56,13 @@ public class LettersInTheNameImpl implements LettersInTheName {
         return beforeNextApperance.length();
     }
 
+
+    /**
+     * method loads the *.txt file
+     *
+     * @param fileName name of the file
+     * @throws FileNotFoundException in case of no file found
+     */
     @Override
     public void loadFromFile(String fileName) throws FileNotFoundException {
 
@@ -59,6 +73,13 @@ public class LettersInTheNameImpl implements LettersInTheName {
         name2 = s.nextLine();
     }
 
+
+    /**
+     * method saves the result into *.txt file
+     *
+     * @param fileName file name
+     * @throws FileNotFoundException in case of no file found
+     */
     @Override
     public void saveToFile(String fileName) throws FileNotFoundException {
 
