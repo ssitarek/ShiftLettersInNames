@@ -66,5 +66,41 @@ public class LettersInTheNameImplTest {
         assertEquals(16, result);
     }
 
+    @Test
+    public void testAllLettersFirstReplaced() {
 
+        String string01 = "abcdefghijklmnopqrstuvw";
+        String string02 = "wbcdefghijklmnopqrstuva";
+        LettersInTheNameImpl lettersInTheName = new LettersInTheNameImpl(string01, string02);
+        int result = lettersInTheName.calculateNumberOfShift();
+        assertEquals(43, result);
+    }
+
+    @Test
+    public void testAllLettersInversed() {
+
+        String string01 = "abcdefghijklmnopqrstuvw";
+        String string02 = "wvutsrqponmlkjihgfedcba";
+        LettersInTheNameImpl lettersInTheName = new LettersInTheNameImpl(string01, string02);
+        int result = lettersInTheName.calculateNumberOfShift();
+        assertEquals(calcSumOfRangeZeroToX(string01.length()), result);
+    }
+
+    @Test
+    public void testAllLettersAndDigitsInversed() {
+
+        String string01 = "abcdefghijklmnopqrstuvw0123456789";
+        String string02 = "9876543210wvutsrqponmlkjihgfedcba";
+        LettersInTheNameImpl lettersInTheName = new LettersInTheNameImpl(string01, string02);
+        int result = lettersInTheName.calculateNumberOfShift();
+        assertEquals(calcSumOfRangeZeroToX(string01.length()), result);
+    }
+
+    private int calcSumOfRangeZeroToX(int x) {
+        int sum = 0;
+        for (int i = 1; i < x; i++) {
+            sum = sum + x - i;
+        }
+        return sum;
+    }
 }
