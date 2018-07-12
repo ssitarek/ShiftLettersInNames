@@ -4,6 +4,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        LettersInTheNameImpl lettersInTheName = new LettersInTheNameImpl("abcd", "dcba");
+        System.out.println(lettersInTheName.calculateNumberOfShift());
     }
 }
