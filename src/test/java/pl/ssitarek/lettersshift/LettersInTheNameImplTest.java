@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class LettersInTheNameImplTest {
 
     @Test
-    public void testSignleLetter() {
+    public void testSingleLetter() {
 
         String string01 = "a";
         String string02 = "a";
@@ -19,8 +19,8 @@ public class LettersInTheNameImplTest {
     @Test
     public void testTheSame() {
 
-        String string01 = "a";
-        String string02 = "a";
+        String string01 = "ab";
+        String string02 = "ab";
         LettersInTheNameImpl lettersInTheName = new LettersInTheNameImpl(string01, string02);
         int result = lettersInTheName.calculateNumberOfShift();
         assertEquals(0, result);
