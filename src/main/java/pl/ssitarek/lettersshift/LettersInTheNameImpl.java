@@ -31,7 +31,6 @@ public class LettersInTheNameImpl implements LettersInTheName {
     @Override
     public int calculateNumberOfShift() {
 
-        // System.out.println(name1 + "\n" + name2);
         numberOfShifts = 0;
         for (int i = 0; i < name1.length(); i++) {
             numberOfShifts += moveSingleLetterInSecondName(i);
@@ -52,7 +51,6 @@ public class LettersInTheNameImpl implements LettersInTheName {
         String beforeNextApperance = name2.substring(i, letterIndex);
         String afterNextApperance = name2.substring(letterIndex + 1, name2.length());
         name2 = fixedPart + letterAnalyzed + beforeNextApperance + afterNextApperance;
-        // System.out.println(name2 + " " + beforeNextApperance.length());
         return beforeNextApperance.length();
     }
 
@@ -69,8 +67,8 @@ public class LettersInTheNameImpl implements LettersInTheName {
         Scanner s = new Scanner(new File(fileName));
         String singleLine = s.nextLine();
         nameLength = Integer.parseInt(singleLine);
-        name1 = s.nextLine();
-        name2 = s.nextLine();
+        name1 = s.nextLine().toUpperCase();
+        name2 = s.nextLine().toUpperCase();
     }
 
 
