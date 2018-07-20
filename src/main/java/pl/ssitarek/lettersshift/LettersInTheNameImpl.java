@@ -17,11 +17,6 @@ public class LettersInTheNameImpl implements LettersInTheName {
         this.name2 = name2.toUpperCase();
     }
 
-    public LettersInTheNameImpl() {
-
-    }
-
-
     /**
      * method calculates the number of the neighbours letter shift to reach by the letter the first position
      *

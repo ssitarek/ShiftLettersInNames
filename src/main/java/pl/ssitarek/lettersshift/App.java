@@ -10,7 +10,7 @@ public class App {
     public static void main(String[] args) throws FileNotFoundException {
 
         try {
-            LettersInTheNameImpl lettersInTheName = new LettersInTheNameImpl();
+            LettersInTheNameImpl lettersInTheName = new LettersInTheNameImpl("", "");
             lettersInTheName.loadFromFile(INPUT_FILE);
 
             lettersInTheName.calculateNumberOfShift();
