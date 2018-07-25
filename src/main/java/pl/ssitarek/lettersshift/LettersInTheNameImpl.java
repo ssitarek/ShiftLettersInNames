@@ -9,8 +9,12 @@ public class LettersInTheNameImpl implements LettersInTheName {
 
     private String name1;
     private String name2;
-    private int nameLength;
-    private int numberOfShifts;
+    private long nameLength;
+    private long numberOfShifts;
+
+    public LettersInTheNameImpl(){
+
+    }
 
     public LettersInTheNameImpl(String name1, String name2) {
         this.name1 = name1.toUpperCase();
@@ -24,29 +28,29 @@ public class LettersInTheNameImpl implements LettersInTheName {
      */
 
     @Override
-    public int calculateNumberOfShift() {
+    public long calculateNumberOfShift() {
 
         numberOfShifts = 0;
-        for (int i = 0; i < name1.length(); i++) {
-            numberOfShifts += moveSingleLetterInSecondName(i);
+        while (name2.length()>0){
+            numberOfShifts += moveSingleLetterInSecondName();
         }
         return numberOfShifts;
     }
 
-    private int moveSingleLetterInSecondName(int i) {
+    private long moveSingleLetterInSecondName() {
 
-        Character letterAnalyzed = name1.charAt(i);
-        Character letterName2 = name2.charAt(i);
-        if (letterName2.equals(letterAnalyzed)) {
+        if (name1.charAt(0)==name2.charAt(0)) {
+            name1 = name1.substring(1);
+            name2= name2.substring(1);
             return 0;
         }
 
-        int letterIndex = name2.indexOf(letterAnalyzed, i);
-        String fixedPart = name2.substring(0, i);
-        String beforeNextApperance = name2.substring(i, letterIndex);
-        String afterNextApperance = name2.substring(letterIndex + 1, name2.length());
-        name2 = fixedPart + letterAnalyzed + beforeNextApperance + afterNextApperance;
-        return beforeNextApperance.length();
+        int letterIndex = name2.indexOf(name1.charAt(0));
+        name1 = name1.substring(1);
+        String beforeNextApperance = name2.substring(0, letterIndex);
+        String afterNextApperance = name2.substring(letterIndex + 1);
+        name2 = beforeNextApperance+afterNextApperance;
+        return letterIndex;
     }
 
 
@@ -81,7 +85,8 @@ public class LettersInTheNameImpl implements LettersInTheName {
         printWriter.close();
     }
 
-    public int getNumberOfShifts() {
+    @Override
+    public long getNumberOfShifts() {
         return numberOfShifts;
     }
 }
